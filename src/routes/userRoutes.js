@@ -1,6 +1,6 @@
 import Router from 'express';
 
-import userController from '../controllers/userController.js';
+import userController from '../controllers/UserController.js';
 import loginRequired from '../middlewares/loginRequired.js';
 
 const router = new Router();
@@ -12,4 +12,4 @@ router.post('/', userController.store);
 router.put('/', loginRequired, userController.update);
 router.delete('/', loginRequired, userController.deleteOne);
 
-export {router as userRoutes};
+export {router as userRoutes}; 
