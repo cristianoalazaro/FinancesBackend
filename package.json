@@ -6,8 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/app.js",
-    "build": "sucrase ./src -d ./dist --transforms imports",
-    "start": "node dist/app.js"
+    "start": "node --experimental-modules src/app.js"
   },
   "author": "",
   "license": "ISC",
@@ -22,7 +21,7 @@
     "mongoose": "^5.11.10"
   },
   "devDependencies": {
-    "nodemon": "^2.0.6",
-    "sucrase": "^3.17.0"
-  }
+    "nodemon": "^2.0.6"
+  },
+  "type": "module"
 }

@@ -1,1 +1,1 @@
-web: node dist/app.js
+web: node --experimental-modules src/app.js
