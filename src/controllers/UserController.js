@@ -55,6 +55,17 @@ const show = async (req, res) => {
     }
 }
 
+const showByEmail = async (req, res) => {
+    try {
+        const email = req.params.email;
+
+        const user = await User.findOne({ email });
+        return res.json(user)
+    } catch (error) {
+        return res.json('errors: Usuário não encontrado');
+    }
+}
+
 const update = async (req, res) => {
     try {
         const email = req.userEmail;
@@ -62,7 +73,7 @@ const update = async (req, res) => {
         if (req.body.email !== email) {
             await emailExist(req.body.email);
             if (errorList.length > 0) {
-                res.status(400).json({errors: ['E-mail já existe']});
+                res.status(400).json({ errors: ['E-mail já existe'] });
                 return errorList.splice(0, errorList.length);
             }
         }
@@ -86,4 +97,4 @@ const deleteOne = async (req, res) => {
     }
 }
 
-export default { index, store, show, update, deleteOne };
+export default { index, store, show, showByEmail, update, deleteOne };
