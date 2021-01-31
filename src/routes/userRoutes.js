@@ -7,7 +7,7 @@ const router = new Router();
 
 //router.get('/', userController.index);
 router.get('/id/:id', loginRequired, userController.show);
-router.get('/email/:email', userController.showByEmail);
+router.get('/email/:email', loginRequired, userController.showByEmail);
 
 router.post('/', userController.store);
 router.put('/', loginRequired, userController.update);
