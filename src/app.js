@@ -8,6 +8,7 @@ dotenv.config();
 
 import {userRoutes} from './routes/userRoutes.js';
 import {tokenRoutes} from './routes/tokenRoutes.js';
+import {transactionRoutes} from './routes/transactionRoutes.js';
 
 mongoose.connect(process.env.CONNECTION_STRING,{
     useNewUrlParser: true,
@@ -29,6 +30,7 @@ app.use(express.json());
 app.get('/', (req, res)=> res.json('ok'));
 app.use('/users/', userRoutes);
 app.use('/token/', tokenRoutes);
+app.use('/transaction/', transactionRoutes);
 
 const port = process.env.PORT || 8080;
 
