@@ -1,8 +1,8 @@
 import Transaction from '../models/TransactionModel.js';
 
-const index = async (req, res, user)=>{
+const index = async (req, res)=>{
     try{
-        const user = user;
+        const user = req.userId;
         const transactions = await Transaction.find({user});
         return res.json(transactions);
     } catch(error){
