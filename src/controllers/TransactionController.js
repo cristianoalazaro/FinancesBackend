@@ -1,10 +1,8 @@
-import mongoose from 'mongoose';
-
 import Transaction from '../models/TransactionModel.js';
 
-const index = async (req, res)=>{
+const index = async (req, res, user)=>{
     try{
-        const user = req.userId;
+        const user = user;
         const transactions = await Transaction.find({user});
         return res.json(transactions);
     } catch(error){
