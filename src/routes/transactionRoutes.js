@@ -5,6 +5,6 @@ import loginRequired from '../middlewares/loginRequired.js';
 
 const router = new Router();
 
-router.post('/',loginRequired,transactionController.index);
+router.post('/',transactionController.index);
 
 export {router as transactionRoutes};
